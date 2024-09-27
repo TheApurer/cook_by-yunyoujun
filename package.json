@@ -1,0 +1,84 @@
+{
+  "type": "module",
+  "version": "1.2.2",
+  "private": true,
+  "packageManager": "pnpm@9.10.0",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "npm run convert && nuxt build",
+    "build:static": "npm run convert && nuxt generate",
+    "convert": "pnpm -C scripts run convert",
+    "dev": "nuxt dev --host",
+    "dev:pwa": "VITE_PLUGIN_PWA=true nuxi dev",
+    "generate": "nuxt generate",
+    "start:generate": "npx serve .output/public",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "postinstall": "nuxt prepare && npm run convert",
+    "preview": "serve dist",
+    "preview-https": "serve dist",
+    "release": "bumpp",
+    "test": "vitest",
+    "typecheck": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.13",
+    "vue-about-me": "^1.2.7"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.6.0",
+    "@headlessui/vue": "^1.7.23",
+    "@iconify-json/carbon": "^1.2.1",
+    "@iconify-json/fe": "^1.2.0",
+    "@iconify-json/gg": "^1.2.0",
+    "@iconify-json/ic": "^1.2.0",
+    "@iconify-json/mdi": "^1.2.0",
+    "@iconify-json/ri": "^1.2.0",
+    "@iconify-json/twemoji": "^1.2.0",
+    "@nuxt/devtools": "^1.4.2",
+    "@nuxt/eslint": "^0.5.7",
+    "@nuxt/test-utils": "^3.14.2",
+    "@nuxtjs/color-mode": "^3.5.1",
+    "@pinia/nuxt": "^0.5.4",
+    "@pinia/testing": "^0.1.5",
+    "@unocss/eslint-config": "^0.62.3",
+    "@unocss/nuxt": "^0.62.3",
+    "@vite-pwa/nuxt": "^0.10.5",
+    "@vue/test-utils": "^2.4.6",
+    "@vueuse/nuxt": "^11.0.3",
+    "@yunlefun/vue": "^0.1.1",
+    "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "bumpp": "^9.5.2",
+    "consola": "^3.2.3",
+    "dexie": "^4.0.8",
+    "eslint": "^9.10.0",
+    "eslint-plugin-format": "^0.1.2",
+    "fake-indexeddb": "^6.0.0",
+    "jsdom": "^25.0.0",
+    "lint-staged": "^15.2.10",
+    "nuxt": "3.13.1",
+    "nuxt-fix-ofetch": "^0.0.15",
+    "nuxt-vitest": "^0.11.5",
+    "pinia": "^2.2.2",
+    "sass": "^1.78.0",
+    "serve": "^14.2.3",
+    "simple-git-hooks": "^2.11.1",
+    "star-markdown-css": "^0.5.1",
+    "tsx": "^4.19.1",
+    "typescript": "5.5.4",
+    "unocss": "^0.62.3",
+    "vitest": "^2.1.1",
+    "vue-tsc": "^2.1.6"
+  },
+  "resolutions": {
+    "@typescript-eslint/utils": "^8.5.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
